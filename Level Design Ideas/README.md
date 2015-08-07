@@ -9,6 +9,7 @@ How to Navigate:
 Color Coding:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	1. Lighter Color - Puzzle blocks. These are the blocks necessary to move to solve the puzzle.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	2. Normal Color - Stationary (regular) blocks. These blocks are not necessary for solution but can be moved.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	3. Darker Color - Hazard blocks. These blocks present a hazard to the player and will prompt movement if touched. There are two types:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	3. Darker Color - Hazard blocks. These blocks present a hazard to the player and will prompt movement if touched.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  There are two types:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		A 1x1 hazard is considered a stationary (regular) hazard block. These remain in place and cannot be moved.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		A 4x4 hazard is considered an interactive hazard block (enemy). These will attack the player and can be moved.  
