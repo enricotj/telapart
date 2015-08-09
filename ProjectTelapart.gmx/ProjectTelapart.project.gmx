@@ -5,9 +5,32 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_tile</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\LevelInit.gml</script>
+    <script>scripts\log.gml</script>
+    <scripts name="Player">
+      <script>scripts\PlayerInit.gml</script>
+      <script>scripts\PlayerControl.gml</script>
+      <script>scripts\PlayerDraw.gml</script>
+    </scripts>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_level</object>
+    <object>objects\obj_testTile</object>
+    <object>objects\obj_player</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_test</room>
+  </rooms>
+  <constants number="1">
+    <constant name="TILE_SIZE">4</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
