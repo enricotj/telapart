@@ -1,12 +1,11 @@
 g = .25;
 
-hsMax = 2;
+hsMax = 4;
 vsMax = 4;
 
-vOff = 8;
+vOff = 16;
 hOff = 4;
 
 xs = 0;
 ys = 0;
 
-image_speed = 0;
