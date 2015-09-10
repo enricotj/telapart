@@ -28,7 +28,7 @@
             <string>groundType = 0;
 var c = x / TILE_SIZE;
 var r = y / TILE_SIZE;
-obj_level.grid[# c, r] = groundType;
+ds_grid_set(grids[grid], c, r, groundType);
 </string>
           </argument>
         </arguments>

@@ -8,38 +8,38 @@ var lCol = floor((nx - hOff) / TILE_SIZE);
 var rCol = floor((nx + hOff) / TILE_SIZE);
 var hRow = floor((ny + 6) / TILE_SIZE);
 var topRow = floor((ny - 10) / TILE_SIZE);
-var left = obj_level.grid[# lCol, hRow];
-var right = obj_level.grid[# rCol, hRow];
+var left = ds_grid_get(grids[grid], lCol, hRow);
+var right = ds_grid_get(grids[grid], rCol, hRow);
 var top = -1;
 
 var vCol = floor(nx / TILE_SIZE);
 var topRow = floor((ny - vOff) / TILE_SIZE);
 var botRow = floor((ny + vOff) / TILE_SIZE);
-var ground = obj_level.grid[# vCol, botRow];
+var ground = ds_grid_get(grids[grid], vCol, botRow);
 
 for (var r = topRow; r <= hRow; r++)
 {
-    if (obj_level.grid[# lCol, r] == 0)
+    if (ds_grid_get(grids[grid], lCol, r) == 0)
     {
         left = 0;
     }
-    if (obj_level.grid[# rCol, r] == 0)
+    if (ds_grid_get(grids[grid], rCol, r) == 0)
     {
         right = 0;
     }
 }
 
-if (obj_level.grid[# vCol, topRow] == 0)
+if (ds_grid_get(grids[grid], vCol, topRow) == 0)
 {
     top = 0;
 }
 
 for (var c = lCol; c <= rCol; c++) {
-    if (obj_level.grid[# c, topRow] == 0)
+    if (ds_grid_get(grids[grid], c, topRow) == 0)
     {
         //top = 0;
     }
-    if (obj_level.grid[# c, botRow] == 0)
+    if (ds_grid_get(grids[grid], c, botRow) == 0)
     {
         //ground = 0;
     }
@@ -47,23 +47,23 @@ for (var c = lCol; c <= rCol; c++) {
 
 for (var i = 0; i < ys; i += TILE_SIZE) {
     var ysRow = floor((ny + vOff + i) / TILE_SIZE);
-    if (obj_level.grid[# vCol, ysRow] == 0) {
+    if (ds_grid_get(grids[grid], vCol, ysRow) == 0) {
         ground = 0;
         ys += i;
         xs = 0;
     }
 }
 
-var slope = obj_level.grid[# vCol, botRow - 1];
-var slope1 = obj_level.grid[# vCol, botRow - 2];
-var wall = obj_level.grid[# vCol, botRow - 3];
+var slope = ds_grid_get(grids[grid], vCol, botRow - 1);
+var slope1 = ds_grid_get(grids[grid], vCol, botRow - 2);
+var wall = ds_grid_get(grids[grid], vCol, botRow - 3);
 
-var lSlope = obj_level.grid[# lCol, botRow - 1];
-var lSlope1 = obj_level.grid[# lCol, botRow - 2];
-var lWall = obj_level.grid[# lCol, botRow - 3];
-var rSlope = obj_level.grid[# rCol, botRow - 1];
-var rSlope1 = obj_level.grid[# rCol, botRow - 2];
-var rWall = obj_level.grid[# rCol, botRow - 3];
+var lSlope = ds_grid_get(grids[grid], lCol, botRow - 1);
+var lSlope1 = ds_grid_get(grids[grid], lCol, botRow - 2);
+var lWall = ds_grid_get(grids[grid], lCol, botRow - 3);
+var rSlope = ds_grid_get(grids[grid], rCol, botRow - 1);
+var rSlope1 = ds_grid_get(grids[grid], rCol, botRow - 2);
+var rWall = ds_grid_get(grids[grid], rCol, botRow - 3);
 
 // horizontal movement
 if (keyboard_check(ord('A')))
@@ -118,13 +118,19 @@ if (keyboard_check_pressed(vk_escape)) {
     game_restart();
 }
 
+
 if (xs != 0) {
     image_speed = 0.25;
     image_xscale = sign(xs);
 }
 else {
-    image_index = 1;
     image_speed = 0;
+    image_index = 2;
+}
+
+if (ground == -1) {
+    image_speed = 0;
+    image_index = 5;
 }
 
 nx += xs;
@@ -132,3 +138,5 @@ ny += ys;
 
 x = nx;
 y = ny;
+
+ViewMouseAdjust();
